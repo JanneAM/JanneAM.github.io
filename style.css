@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #22072c;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: white;
+}
+
+nav ul {
+}
