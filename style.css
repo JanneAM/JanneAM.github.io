@@ -5,27 +5,29 @@
 }
 
 :root {
-  --home-bg-color: #fcc437;
-  --experience-bg-color: #6bd43a;
-  --gallery-bg-color: #22072c;
+  /*colors*/
   --contact-bg-color: #002b3f;
-  --home-arrow-color: #181818;
-  --experience-arrow-color: #181818;
-  --gallery-arrow-color: #181818;
   --contact-arrow-color: #181818;
+  --experience-bg-color: #6bd43a;
+  --experience-arrow-color: #181818;
+  --gallery-bg-color: #22072c;
+  --gallery-arrow-color: #181818;
+  --home-bg-color: #f6df67;
+  --home-arrow-color: #181818;
+  --active-arrow-color: #181818;
+
+  /*misc*/
   --basic-margin: 2rem;
+  --font-family: "Istok Web", sans-serif;
 }
 
 body {
   background-color: var(--main-bg-color);
   color: var(--main-color);
-  font-family: "Istok Web", sans-serif;
+  font-family: var(--font-family);
 }
 
-/**Main**/
-
-h1 {
-}
+/*Main*/
 
 .container {
   height: 100vh;
@@ -37,40 +39,60 @@ h1 {
   margin: 0 auto;
   padding: 10vh 0;
 }
-
+/*Home*/
 #home {
   background-color: var(--home-bg-color);
+  color: var(--home-arrow-color);
 }
-
+h1 {
+  font-size: 3rem;
+}
+/*Experience*/
 #experience {
   background-color: var(--experience-bg-color);
 }
-
+/*Gallery*/
 #gallery {
   background-color: var(--gallery-bg-color);
 }
-
+/*Contact*/
 #contact {
   background-color: var(--contact-bg-color);
 }
 
-/**Nav**/
+/*Nav*/
 .sticky {
   position: fixed;
   z-index: 3;
-  top: 75vh;
+  top: 70vh;
   left: 75vw;
 }
-.arrows {
+.arrow-container {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 3rem;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 1.5rem;
   color: var(--arrow-color);
+  padding: 1rem;
 }
 .arrow {
-  align-self: center;
-  justify-self: center;
+  display: grid;
+  justify-content: center;
 }
-.sticky p {
-  margin-bottom: var(--basic-margin);
+
+.arrow svg {
+  stroke: var(--active-arrow-color);
+}
+.arrow rect {
+  stroke: var(--active-arrow-color);
+}
+.down svg {
+  transform: rotate(180deg);
+}
+
+.left svg {
+  transform: rotate(270deg);
+}
+
+.right svg {
+  transform: rotate(90deg);
 }
