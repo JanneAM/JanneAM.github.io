@@ -5,13 +5,72 @@
 }
 
 :root {
-  --main-bg-color: #22072c;
+  --home-bg-color: #fcc437;
+  --experience-bg-color: #6bd43a;
+  --gallery-bg-color: #22072c;
+  --contact-bg-color: #002b3f;
+  --home-arrow-color: #181818;
+  --experience-arrow-color: #181818;
+  --gallery-arrow-color: #181818;
+  --contact-arrow-color: #181818;
+  --basic-margin: 2rem;
 }
 
 body {
   background-color: var(--main-bg-color);
-  color: white;
+  color: var(--main-color);
+  font-family: "Istok Web", sans-serif;
 }
 
-nav ul {
+/**Main**/
+
+h1 {
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+}
+
+.content {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 10vh 0;
+}
+
+#home {
+  background-color: var(--home-bg-color);
+}
+
+#experience {
+  background-color: var(--experience-bg-color);
+}
+
+#gallery {
+  background-color: var(--gallery-bg-color);
+}
+
+#contact {
+  background-color: var(--contact-bg-color);
+}
+
+/**Nav**/
+.sticky {
+  position: fixed;
+  z-index: 3;
+  top: 75vh;
+  left: 75vw;
+}
+.arrows {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 3rem;
+  color: var(--arrow-color);
+}
+.arrow {
+  align-self: center;
+  justify-self: center;
+}
+.sticky p {
+  margin-bottom: var(--basic-margin);
 }
