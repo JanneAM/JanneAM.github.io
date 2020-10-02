@@ -3,57 +3,34 @@ const experience = document.getElementById("experience");
 const gallery = document.getElementById("gallery");
 const contact = document.getElementById("contact");
 
+let activePage;
+
 const tl = gsap.timeline();
 
-function moveSectionVertical(element, duration, yStart, yEnd) {
-  //check that element and valid duration has been assinged
-  if (
-    typeof element == "object" &&
-    typeof duration == "number" &&
-    typeof yStart == ("string" || "number") &&
-    typeof yEnd == ("string" || "number")
-  ) {
-    tl.fromTo(
-      element,
-      duration,
-      { y: yStart },
-      { y: yEnd, ease: Power2.easeInOut }
-    );
-  } else console.log("invalid inputs for function");
+//fadeout function for outros for all elements
+function fadeOut(element) {
+  tl.fromTo(element, 3, { opacity: 1 }, { opacity: 0 });
 }
 
-function moveSectionHorizontal(element, duration, xStart, xEnd) {
-  //check that element and valid duration has been assinged
-  if (
-    typeof element == "object" &&
-    typeof duration == "number" &&
-    typeof yStart == ("string" || "number") &&
-    typeof yEnd == ("string" || "number")
-  ) {
-    tl.fromTo(
-      element,
-      duration,
-      { x: xStart },
-      { x: xEnd, ease: Power2.easeInOut }
-    );
-  } else console.log("invalid inputs for function");
-}
-
-function animOpacity(element, aStart, aEnd) {
-  tl.FromTo(element);
-}
-
-document.addEventListener(
-  "DOMContentLoaded",
-  moveSectionVertical(home, 2, "-100%", "0%")
-);
-
+//animate different pages in different manner
 function animateHome() {
-  tl.fromTo(home, 1, { y: "-100%" }, { y: "0%", ease: Power2.easeInOut });
+  tl.set(home, { zIndex: 1 }, 0.25).fromTo(
+    home,
+    1,
+    { y: "-100%" },
+    { y: "0%", ease: Power2.easeInOut }
+  );
+  activePage = home;
 }
 
 function animateExperience() {
-  tl.fromTo(experience, 1, { y: "-100%" }, { y: "0%", ease: Power2.easeInOut });
+  tl.set(experience, { zIndex: 3 }, 0.25).fromTo(
+    experience,
+    1,
+    { x: "-100%" },
+    { x: "0%", ease: Power2.easeInOut },
+    1
+  );
 }
 
 function animateGallery() {
@@ -61,7 +38,7 @@ function animateGallery() {
 }
 
 function animateContact() {
-  tl.fromTo(contact, 1, { y: "-100%" }, { y: "0%", ease: Power2.easeInOut });
+  tl.fromTo(contact, 1, { y: "0%" }, { y: "100%", ease: Power2.easeInOut });
 }
 
 //Fire functions with key presses:
@@ -70,16 +47,19 @@ window.addEventListener("keydown", (event) => {
 
   switch (event.key) {
     case "ArrowUp":
+      fadeOut(activePage);
       animateHome();
       break;
-    case "ArrowDown":
+    case "ArrowLeft":
       animateExperience();
       break;
-    case "ArrowLeft":
+    case "ArrowRight":
       animateGallery();
       break;
-    case "ArrowRight":
+    case "ArrowDown":
       animateContact();
       break;
   }
 });
+
+document.addEventListener("DOMContentLoaded", animateHome());
