@@ -12,7 +12,7 @@ let masterTl = gsap.timeline();
 function animateHome() {
   const tl = gsap.timeline();
 
-  tl.set(home, { zIndex: 1, opacity: 1 }, 1).fromTo(
+  tl.set(home, { zIndex: 2, opacity: 1 }, 1).fromTo(
     home,
     1,
     { y: "-100%" },
@@ -26,7 +26,7 @@ function animateHome() {
 function animateExperience() {
   const tl = gsap.timeline();
 
-  tl.set(experience, { zIndex: 1, opacity: 1 }, 1).fromTo(
+  tl.set(experience, { zIndex: 2, opacity: 1 }, 1).fromTo(
     experience,
     1,
     { y: "-100%" },
@@ -40,7 +40,7 @@ function animateExperience() {
 function animateGallery() {
   const tl = gsap.timeline();
 
-  tl.set(gallery, { zIndex: 1, opacity: 1 }, 1).fromTo(
+  tl.set(gallery, { zIndex: 2, opacity: 1 }, 1).fromTo(
     gallery,
     1,
     { y: "-100%" },
@@ -54,7 +54,7 @@ function animateGallery() {
 function animateContact() {
   const tl = gsap.timeline();
 
-  tl.set(contact, { zIndex: 1, opacity: 1 }, 1).fromTo(
+  tl.set(contact, { zIndex: 2, opacity: 1 }, 1).fromTo(
     contact,
     1,
     { y: "-100%" },
@@ -70,7 +70,12 @@ function animateOut(element) {
   const tl = gsap.timeline();
   const content = element.querySelector(".content");
 
-  tl.fromTo(content, 1, { opacity: 1 }, { opacity: 0 });
+  tl.set(element, { zIndex: 1 }).fromTo(
+    content,
+    1,
+    { opacity: 1 },
+    { opacity: 0 }
+  );
   resetElement = element;
   return tl;
 }
@@ -91,28 +96,32 @@ window.addEventListener("keydown", (event) => {
 
   switch (event.key) {
     case "ArrowUp":
+      if (activePage == home) break;
       masterTl
         .add(animateOut(activePage))
         .add(animateHome)
-        .add(resetElem(resetElement), "+=1");
+        .add(resetElem(resetElement), "+=2");
       break;
     case "ArrowLeft":
+      if (activePage == experience) break;
       masterTl
         .add(animateOut(activePage))
         .add(animateExperience)
-        .add(resetElem(resetElement), "+=1");
+        .add(resetElem(resetElement), "+=2");
       break;
     case "ArrowRight":
+      if (activePage == gallery) break;
       masterTl
         .add(animateOut(activePage))
         .add(animateGallery)
-        .add(resetElem(resetElement), "+=1");
+        .add(resetElem(resetElement), "+=2");
       break;
     case "ArrowDown":
+      if (activePage == contact) break;
       masterTl
         .add(animateOut(activePage))
         .add(animateContact)
-        .add(resetElem(resetElement), "+=1");
+        .add(resetElem(resetElement), "+=2");
       break;
   }
 });

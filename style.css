@@ -44,6 +44,10 @@ body {
   margin: 0 auto;
   padding: 10vh 0;
 }
+
+#blank {
+  background-color: white;
+}
 /*Home*/
 #home {
   background-color: var(--home-bg-color);
