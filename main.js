@@ -3,21 +3,26 @@ const experience = document.getElementById("experience");
 const gallery = document.getElementById("gallery");
 const contact = document.getElementById("contact");
 
+//initialize function for getting css variable values to be used in the animations
+let getVariableValue = (variable) =>
+  getComputedStyle(document.documentElement).getPropertyValue(variable);
+
+const homeContentColor = getVariableValue("--home-content-color");
+const galleryContentColor = getVariableValue("--gallery-content-color");
+const contactContentColor = getVariableValue("--contact-content-color");
+const experienceContentColor = getVariableValue("--experience-content-color");
+
 let activePage;
 let resetElement;
-
 let masterTl = gsap.timeline();
 
 //animate different pages in different manner
 function animateHome() {
   const tl = gsap.timeline();
 
-  tl.set(home, { zIndex: 2, opacity: 1 }, 1).fromTo(
-    home,
-    1,
-    { y: "-100%" },
-    { y: "0%", ease: Power2.easeInOut }
-  );
+  tl.set(home, { zIndex: 2, opacity: 1 }, 1)
+    .fromTo(home, 1, { y: "-100%" }, { y: "0%", ease: Power2.easeInOut })
+    .to("html", { "--active-content-color": homeContentColor }, "-=0.5");
   activePage = home;
 
   return tl;
@@ -26,12 +31,9 @@ function animateHome() {
 function animateGallery() {
   const tl = gsap.timeline();
 
-  tl.set(gallery, { zIndex: 2, opacity: 1 }, 1).fromTo(
-    gallery,
-    1,
-    { x: "100%" },
-    { x: "0%", ease: Power2.easeInOut }
-  );
+  tl.set(gallery, { zIndex: 2, opacity: 1 }, 1)
+    .fromTo(gallery, 1, { x: "100%" }, { x: "0%", ease: Power2.easeInOut })
+    .to("html", { "--active-content-color": galleryContentColor }, "-=0.5");
   activePage = gallery;
 
   return tl;
@@ -40,12 +42,9 @@ function animateGallery() {
 function animateContact() {
   const tl = gsap.timeline();
 
-  tl.set(contact, { zIndex: 2, opacity: 1 }, 1).fromTo(
-    contact,
-    1,
-    { y: "100%" },
-    { y: "0%", ease: Power2.easeInOut }
-  );
+  tl.set(contact, { zIndex: 2, opacity: 1 }, 1)
+    .fromTo(contact, 1, { y: "100%" }, { y: "0%", ease: Power2.easeInOut })
+    .to("html", { "--active-content-color": contactContentColor }, "-=0.5");
   activePage = contact;
 
   return tl;
@@ -54,12 +53,9 @@ function animateContact() {
 function animateExperience() {
   const tl = gsap.timeline();
 
-  tl.set(experience, { zIndex: 2, opacity: 1 }, 1).fromTo(
-    experience,
-    1,
-    { x: "-100%" },
-    { x: "0%", ease: Power2.easeInOut }
-  );
+  tl.set(experience, { zIndex: 2, opacity: 1 }, 1)
+    .fromTo(experience, 1, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut })
+    .to("html", { "--active-content-color": experienceContentColor }, "-=0.5");
   activePage = experience;
 
   return tl;

@@ -6,17 +6,15 @@
 
 :root {
   /*colors*/
-  --contact-bg-color: #002b3f;
-  --contact-arrow-color: #181818;
-  --experience-bg-color: #6bd43a;
-  --experience-arrow-color: #181818;
-  --gallery-bg-color: #22072c;
-  --gallery-arrow-color: #181818;
+  --contact-bg-color: #004666;
+  --contact-content-color: #ffd0f1;
+  --experience-bg-color: #ffd0f1;
+  --experience-content-color: #004666;
+  --gallery-bg-color: #1f002b;
+  --gallery-content-color: #f6df67;
   --home-bg-color: #f6df67;
-  --home-arrow-color: #181818;
-  --active-arrow-color: #181818;
-  --active-bg-color: #f6df67;
-  --active-txt-color: #181818;
+  --home-content-color: #1f002b;
+  --active-content-color: #1f002b;
 
   /*misc*/
   --basic-margin: 2rem;
@@ -52,6 +50,22 @@ body {
   background-color: white;
 }
 
+#home {
+  background-color: var(--home-bg-color);
+  color: var(--home-content-color);
+}
+#gallery {
+  background-color: var(--gallery-bg-color);
+  color: var(--gallery-content-color);
+}
+#contact {
+  background-color: var(--contact-bg-color);
+  color: var(--contact-content-color);
+}
+#experience {
+  background-color: var(--experience-bg-color);
+  color: var(--experience-content-color);
+}
 h1 {
   font-size: 4rem;
 }
@@ -72,8 +86,13 @@ p {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   grid-gap: 1.5rem;
-  color: var(--arrow-color);
+  color: var(--content-color);
   padding: 1rem;
+}
+
+.arrow-container p {
+  color: var(--active-content-color);
+  font-size: 1.3rem;
 }
 .arrow {
   display: grid;
@@ -81,10 +100,10 @@ p {
 }
 
 .arrow svg {
-  stroke: var(--active-arrow-color);
+  stroke: var(--active-content-color);
 }
 .arrow rect {
-  stroke: var(--active-arrow-color);
+  stroke: var(--active-content-color);
 }
 .down svg {
   transform: rotate(180deg);
