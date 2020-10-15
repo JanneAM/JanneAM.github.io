@@ -15,6 +15,8 @@
   --home-bg-color: #f6df67;
   --home-arrow-color: #181818;
   --active-arrow-color: #181818;
+  --active-bg-color: #f6df67;
+  --active-txt-color: #181818;
 
   /*misc*/
   --basic-margin: 2rem;
@@ -37,6 +39,7 @@ body {
   z-index: 0;
   left: 0;
   top: 0;
+  background-color: var(--active-bg-color);
 }
 
 .content {
@@ -48,27 +51,16 @@ body {
 #blank {
   background-color: white;
 }
-/*Home*/
-#home {
-  background-color: var(--home-bg-color);
-  color: var(--home-arrow-color);
-}
-h1 {
-  font-size: 3rem;
-}
-/*Experience*/
-#experience {
-  background-color: var(--experience-bg-color);
-}
-/*Gallery*/
-#gallery {
-  background-color: var(--gallery-bg-color);
-}
-/*Contact*/
-#contact {
-  background-color: var(--contact-bg-color);
-}
 
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 4rem;
+}
+p {
+  font-size: 2rem;
+}
 /*Nav*/
 .sticky {
   position: fixed;
