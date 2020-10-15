@@ -23,28 +23,14 @@ function animateHome() {
   return tl;
 }
 
-function animateExperience() {
-  const tl = gsap.timeline();
-
-  tl.set(experience, { zIndex: 2, opacity: 1 }, 1).fromTo(
-    experience,
-    1,
-    { y: "-100%" },
-    { y: "0%", ease: Power2.easeInOut }
-  );
-  activePage = experience;
-
-  return tl;
-}
-
 function animateGallery() {
   const tl = gsap.timeline();
 
   tl.set(gallery, { zIndex: 2, opacity: 1 }, 1).fromTo(
     gallery,
     1,
-    { y: "-100%" },
-    { y: "0%", ease: Power2.easeInOut }
+    { x: "100%" },
+    { x: "0%", ease: Power2.easeInOut }
   );
   activePage = gallery;
 
@@ -57,10 +43,24 @@ function animateContact() {
   tl.set(contact, { zIndex: 2, opacity: 1 }, 1).fromTo(
     contact,
     1,
-    { y: "-100%" },
+    { y: "100%" },
     { y: "0%", ease: Power2.easeInOut }
   );
   activePage = contact;
+
+  return tl;
+}
+
+function animateExperience() {
+  const tl = gsap.timeline();
+
+  tl.set(experience, { zIndex: 2, opacity: 1 }, 1).fromTo(
+    experience,
+    1,
+    { x: "-100%" },
+    { x: "0%", ease: Power2.easeInOut }
+  );
+  activePage = experience;
 
   return tl;
 }
@@ -70,12 +70,7 @@ function animateOut(element) {
   const tl = gsap.timeline();
   const content = element.querySelector(".content");
 
-  tl.set(element, { zIndex: 1 }).fromTo(
-    content,
-    1,
-    { opacity: 1 },
-    { opacity: 0 }
-  );
+  tl.set(element, { zIndex: 1 }).to(content, 1, { opacity: 0, y: 60 });
   resetElement = element;
   return tl;
 }
