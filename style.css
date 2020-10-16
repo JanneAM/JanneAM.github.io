@@ -5,7 +5,7 @@
 }
 
 :root {
-  /*colors*/
+  /***********colors***********/
   --contact-bg-color: #004666;
   --contact-content-color: #ffd0f1;
   --experience-bg-color: #ffd0f1;
@@ -16,11 +16,12 @@
   --home-content-color: #1f002b;
   --active-content-color: #1f002b;
 
-  /*misc*/
+  /***********misc***********/
   --basic-margin: 2rem;
   --font-family: "Istok Web", sans-serif;
   --headline-size: 4rem;
   --font-size: 2rem;
+  --border-radius: 5px;
 }
 
 body {
@@ -30,7 +31,11 @@ body {
   overflow: hidden;
 }
 
-/*Main*/
+a {
+  text-decoration: none;
+}
+
+/***********Main***********/
 
 .container {
   height: 100vh;
@@ -51,6 +56,39 @@ body {
   display: flex;
   flex-direction: row;
 }
+h1 {
+  font-size: var(--headline-size);
+  margin-bottom: var(--basic-margin);
+}
+h2 {
+  font-size: var(--headline-size);
+  margin-bottom: var(--basic-margin);
+}
+p {
+  font-size: var(--font-size);
+}
+
+/***********scrollbar width***********/
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/***********scrollbar rack***********/
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+/***********scrollbar handle***********/
+::-webkit-scrollbar-thumb {
+  background: var(--experience-content-color);
+  border-radius: 5px;
+}
+
+/***********scrollbar handle on hover***********/
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gallery-bg-color);
+}
 #blank {
   background-color: white;
 }
@@ -61,7 +99,7 @@ body {
 }
 #home img {
   width: 40%;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   margin-right: calc(var(--basic-margin) * 2);
 }
 #home p {
@@ -82,17 +120,35 @@ body {
   background-color: var(--experience-bg-color);
   color: var(--experience-content-color);
 }
-h1 {
-  font-size: var(--headline-size);
-  margin-bottom: var(--basic-margin);
+#experience ul {
+  list-style: none;
+  padding: var(--basic-margin);
+  border: 1px solid var(--experience-content-color);
+  border-radius: var(--border-radius);
+  max-width: 70%;
+  max-height: 70vh;
+  overflow-y: scroll;
 }
-h2 {
-  font-size: var(--headline-size);
+
+#experience li:not(:first-child) {
+  margin-top: var(--basic-margin);
 }
-p {
-  font-size: var(--font-size);
+
+#experience a {
+  color: var(--experience-content-color);
+  text-decoration: underline;
 }
-/*Nav*/
+
+.topic {
+  font-weight: bold;
+}
+
+.year,
+.explanation {
+  font-size: calc(var(--font-size) * 0.7);
+}
+
+/***********Nav***********/
 .sticky {
   position: fixed;
   z-index: 3;
