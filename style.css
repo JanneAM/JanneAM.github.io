@@ -115,6 +115,49 @@ p {
   background-color: var(--contact-bg-color);
   color: var(--contact-content-color);
 }
+form {
+  width: fit-content;
+  margin: calc(var(--basic-margin) * 3) 0;
+}
+
+.form-group {
+  margin: var(--basic-margin) 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.form-group label {
+  width: calc(var(--basic-margin) * 8);
+  display: inline-block;
+  text-align: left;
+  font-size: calc(var(--font-size) / 1.5);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: calc(var(--basic-margin) / 2);
+  border-radius: var(--border-radius);
+  border: none;
+  width: 100%;
+  font-size: calc(var(--font-size) / 2);
+}
+
+.form-group textarea {
+  min-height: calc(var(--basic-margin) * 4);
+}
+.button-cont {
+  display: flex;
+  justify-content: flex-end;
+}
+form button {
+  background-color: var(--contact-content-color);
+  border-radius: var(--border-radius);
+  border: none;
+  padding: calc(var(--basic-margin) / 2) calc(var(--basic-margin) * 2);
+  color: var(--contact-bg-color);
+  font-size: calc(var(--font-size) / 1.5);
+}
 /***********experience***********/
 #experience {
   background-color: var(--experience-bg-color);
