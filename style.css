@@ -110,6 +110,28 @@ p {
   background-color: var(--gallery-bg-color);
   color: var(--gallery-content-color);
 }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 25%25%25%25%;
+}
+.grid-div img {
+  max-width: 50%;
+}
+.img-container {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: calc(var(--basic-margin) * 4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container img {
+  max-width: 60%;
+  border: var(--basic-margin) solid var(--gallery-bg-color);
+  border-radius: var(--border-radius);
+}
 /***********contact***********/
 #contact {
   background-color: var(--contact-bg-color);
