@@ -1,7 +1,15 @@
-const home = document.getElementById("home");
-const experience = document.getElementById("experience");
-const gallery = document.getElementById("gallery");
-const contact = document.getElementById("contact");
+let getById = (id) => document.getElementById(id);
+const home = getById("home");
+const experience = getById("experience");
+const gallery = getById("gallery");
+const contact = getById("contact");
+
+let getByClass = (className) => document.getElementsByClassName(className);
+
+const arrowUp = getByClass("up")[0];
+const arrowRight = getByClass("right")[0];
+const arrowDown = getByClass("down")[0];
+const arrowLeft = getByClass("left")[0];
 
 //initialize function for getting css variable values to be used in the animations
 let getVariableValue = (variable) =>
@@ -81,40 +89,61 @@ function resetElem(element) {
   return tl;
 }
 
+function homeTimeLine() {
+  if (activePage == home) return;
+  masterTl
+    .add(animateOut(activePage))
+    .add(animateHome)
+    .add(resetElem(resetElement), "+=2");
+}
+
+function experienceTimeLine() {
+  if (activePage == experience) return;
+  masterTl
+    .add(animateOut(activePage))
+    .add(animateExperience)
+    .add(resetElem(resetElement), "+=2");
+}
+
+function galleryTimeLine() {
+  if (activePage == gallery) return;
+  masterTl
+    .add(animateOut(activePage))
+    .add(animateGallery)
+    .add(resetElem(resetElement), "+=2");
+}
+
+function contactTimeLine() {
+  if (activePage == contact) return;
+  masterTl
+    .add(animateOut(activePage))
+    .add(animateContact)
+    .add(resetElem(resetElement), "+=2");
+}
+
 //Fire functions with key presses:
 window.addEventListener("keydown", (event) => {
   if (masterTl.isActive()) return;
 
   switch (event.key) {
     case "ArrowUp":
-      if (activePage == home) break;
-      masterTl
-        .add(animateOut(activePage))
-        .add(animateHome)
-        .add(resetElem(resetElement), "+=2");
-      break;
-    case "ArrowLeft":
-      if (activePage == experience) break;
-      masterTl
-        .add(animateOut(activePage))
-        .add(animateExperience)
-        .add(resetElem(resetElement), "+=2");
+      homeTimeLine();
       break;
     case "ArrowRight":
-      if (activePage == gallery) break;
-      masterTl
-        .add(animateOut(activePage))
-        .add(animateGallery)
-        .add(resetElem(resetElement), "+=2");
+      galleryTimeLine();
       break;
     case "ArrowDown":
-      if (activePage == contact) break;
-      masterTl
-        .add(animateOut(activePage))
-        .add(animateContact)
-        .add(resetElem(resetElement), "+=2");
+      contactTimeLine();
+      break;
+    case "ArrowLeft":
+      experienceTimeLine();
       break;
   }
 });
+
+arrowUp.addEventListener("click", homeTimeLine);
+arrowRight.addEventListener("click", galleryTimeLine);
+arrowDown.addEventListener("click", contactTimeLine);
+arrowLeft.addEventListener("click", experienceTimeLine);
 
 document.addEventListener("DOMContentLoaded", animateHome());

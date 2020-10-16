@@ -19,6 +19,8 @@
   /*misc*/
   --basic-margin: 2rem;
   --font-family: "Istok Web", sans-serif;
+  --headline-size: 4rem;
+  --font-size: 2rem;
 }
 
 body {
@@ -45,35 +47,50 @@ body {
   margin: 0 auto;
   padding: 10vh 0;
 }
-
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
 #blank {
   background-color: white;
 }
-
+/***********home***********/
 #home {
   background-color: var(--home-bg-color);
   color: var(--home-content-color);
 }
+#home img {
+  width: 40%;
+  border-radius: 5px;
+  margin-right: calc(var(--basic-margin) * 2);
+}
+#home p {
+  width: 40%;
+}
+/***********gallery***********/
 #gallery {
   background-color: var(--gallery-bg-color);
   color: var(--gallery-content-color);
 }
+/***********contact***********/
 #contact {
   background-color: var(--contact-bg-color);
   color: var(--contact-content-color);
 }
+/***********experience***********/
 #experience {
   background-color: var(--experience-bg-color);
   color: var(--experience-content-color);
 }
 h1 {
-  font-size: 4rem;
+  font-size: var(--headline-size);
+  margin-bottom: var(--basic-margin);
 }
 h2 {
-  font-size: 4rem;
+  font-size: var(--headline-size);
 }
 p {
-  font-size: 2rem;
+  font-size: var(--font-size);
 }
 /*Nav*/
 .sticky {
@@ -101,6 +118,7 @@ p {
 
 .arrow svg {
   stroke: var(--active-content-color);
+  cursor: pointer;
 }
 .arrow rect {
   stroke: var(--active-content-color);
