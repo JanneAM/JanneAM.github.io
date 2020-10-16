@@ -74,7 +74,7 @@ function animateOut(element) {
   const tl = gsap.timeline();
   const content = element.querySelector(".content");
 
-  tl.set(element, { zIndex: 1 }).to(content, 1, { opacity: 0, y: 60 });
+  tl.set(element, { zIndex: 1 }).to(content, 1, { opacity: 0 }).fromTo(content,1.5,{y:"0%"},{y:"5%"},"-=1.5");
   resetElement = element;
   return tl;
 }
@@ -84,7 +84,7 @@ function resetElem(element) {
   const tl = gsap.timeline();
   const content = element.querySelector(".content");
 
-  tl.set(element, { zIndex: 0 }).set(content, { opacity: 1 });
+  tl.set(element, { zIndex: 0 }).set(content, { opacity: 1, y:"0%" });
 
   return tl;
 }
