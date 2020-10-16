@@ -255,3 +255,151 @@ form button {
 .right svg {
   transform: rotate(90deg);
 }
+
+/***********mobilephone*************/
+@media (max-width: 576px) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: unset;
+  }
+  h1 {
+    font-size: var(--font-size);
+  }
+  h2 {
+    font-size: var(--font-size);
+  }
+  p {
+    font-size: calc(var(--font-size) / 2);
+  }
+  .container {
+    position: static;
+    height: auto;
+    min-width: 100%;
+  }
+  .content {
+    max-width: 100%;
+    padding: var(--basic-margin);
+  }
+  .arrow-container {
+    display: none;
+  }
+  #blank {
+    display: none;
+  }
+  /********home********/
+  .flex-container {
+    display: block;
+  }
+  #home img {
+    width: 100%;
+  }
+  #home p {
+    width: 100%;
+    margin-top: var(--basic-margin);
+  }
+  /********experience********/
+  #experience {
+    height: 190vh;
+  }
+  #experience ul {
+    overflow: unset;
+    border: none;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #experience p {
+    font-size: calc(var(--font-size) / 2);
+    width: 100%;
+  }
+  /************gallery**************/
+  .gallery-grid {
+    grid-template-columns: 50%50%;
+  }
+  /**************contact*****************/
+  .form-group {
+    display: block;
+  }
+  .button-cont {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/***********tablet*************/
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: unset;
+  }
+  h1 {
+    font-size: var(--font-size);
+  }
+  h2 {
+    font-size: var(--font-size);
+  }
+  p {
+    font-size: calc(var(--font-size) / 2);
+  }
+  .container {
+    position: static;
+    height: auto;
+    min-width: 80%;
+  }
+  .content {
+    max-width: 80%;
+    padding: var(--basic-margin);
+  }
+  .arrow-container {
+    display: none;
+  }
+  #blank {
+    display: none;
+  }
+  /********home********/
+  .flex-container {
+    display: block;
+  }
+  #home img {
+    width: 100%;
+  }
+  #home p {
+    width: 100%;
+    margin-top: var(--basic-margin);
+  }
+  /********experience********/
+  #experience {
+    height: 80vh;
+  }
+  #experience ul {
+    overflow: unset;
+    border: none;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #experience p {
+    font-size: calc(var(--font-size) / 2);
+    width: 100%;
+  }
+  /************gallery**************/
+  .gallery-grid {
+    grid-template-columns: 50%50%;
+  }
+  /**************contact*****************/
+  .form-group {
+    display: block;
+  }
+  .button-cont {
+    display: flex;
+    justify-content: center;
+  }
+}
